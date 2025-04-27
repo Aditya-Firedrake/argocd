@@ -1,0 +1,6 @@
+cd argocd
+echo "apiVersion: v1
+kind: Namespace
+metadata:
+  name: nginx-demo" > nginx-ns.yaml
+git add . && git commit -m "Add manifest" && git push
