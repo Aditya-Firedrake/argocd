@@ -5,7 +5,7 @@ metadata:
   labels:
     app: calculator
 spec:
-  replicas: 2
+  replicas: 6
   selector:
     matchLabels:
       app: calculator
@@ -19,4 +19,16 @@ spec:
           image: adityakrs/calculator:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 3000
+            - containerPort: 3000 
+          env:
+            - name: NODE_ENV
+              value: production
+            - name: PORT
+              value: "3000"
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
